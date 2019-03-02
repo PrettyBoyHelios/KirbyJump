@@ -51,7 +51,7 @@ public class GameController : MonoBehaviour
             x = (float)this.random.Next(-3,3);
             x = x+= (float)this.random.NextDouble(); 
             x = clampToScreen(x);
-            GameObject newCloud = Instantiate(cloudPF, new Vector3(x, playerHeight + y),transform.rotation);
+            GameObject newCloud = Instantiate(cloudPF, new Vector3(x, playerHeight + y, -1.0f),transform.rotation);
             currentClouds.Add(newCloud);
             Debug.Log(currentClouds.Count);
         }
