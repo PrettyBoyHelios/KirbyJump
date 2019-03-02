@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
-{
+{    
     // Behaviour Control
-    private bool isJumping;
+    public bool isJumping;
     private bool isDoubleJumping;
 
 
@@ -23,40 +23,51 @@ public class PlayerController : MonoBehaviour
     {
         jumpDirection = new Vector3();
         animatorManager = this.GetComponent<Animator>();
+        isJumping = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(this.transform.position);
-        if (Input.GetMouseButtonDown(0)){
-            //Debug.Log("Mouse Down");
-            mousePressed = true;
-            Ray vRayStart = Camera.main.ScreenPointToRay(Input.mousePosition);
-            startDrag = vRayStart.origin;
-         }
+        Rigidbody2D rb = this.GetComponent<Rigidbody2D>();
 
-         if (Input.GetMouseButtonUp(0)){
-             if (mousePressed) {
-                //Debug.Log("Mouse Released!");
- 
-                Ray vRayEnd = Camera.main.ScreenPointToRay(Input.mousePosition);
- 
-                endDrag = vRayEnd.origin;
- 
-                jumpDirection = endDrag - startDrag;
-                totalDistance = jumpDirection.magnitude;
-                jumpDirection = jumpDirection/totalDistance;
- 
-                Vector2 direction2D = new Vector2(-jumpDirection.x,-jumpDirection.y);
 
-                //Debug.Log(direction2D);
-                //Debug.Log(totalDistance);
+        if(rb.velocity.x == 0.0f && rb.velocity.y == 0.0f){
+            isJumping = false;
+        }
+        if(!isJumping){
+            Debug.Log(this.transform.position);
+            if (Input.GetMouseButtonDown(0)){
+                //Debug.Log("Mouse Down");
+                mousePressed = true;
+                Ray vRayStart = Camera.main.ScreenPointToRay(Input.mousePosition);
+                startDrag = vRayStart.origin;
+            }
 
-                this.GetComponent<Rigidbody2D>().AddForce(direction2D * jumpForce);
- 
-                mousePressed = false;
-             }
-         }
+            if (Input.GetMouseButtonUp(0)){
+                if (mousePressed) {
+                    //Debug.Log("Mouse Released!");
+    
+                    Ray vRayEnd = Camera.main.ScreenPointToRay(Input.mousePosition);
+    
+                    endDrag = vRayEnd.origin;
+    
+                    jumpDirection = endDrag - startDrag;
+                    totalDistance = jumpDirection.magnitude;
+                    jumpDirection = jumpDirection/totalDistance;
+    
+                    Vector2 direction2D = new Vector2(-jumpDirection.x,-jumpDirection.y);
+
+                    //Debug.Log(direction2D);
+                    //Debug.Log(totalDistance);
+
+                    this.GetComponent<Rigidbody2D>().AddForce(direction2D * jumpForce);
+    
+                    mousePressed = false;
+                    isJumping = true;
+                }
+            }
+        }
+        
     }
 }
