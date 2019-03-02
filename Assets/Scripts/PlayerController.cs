@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
             isJumping = false;
         }
         if(!isJumping){
+            Debug.Log("Player position");
             Debug.Log(this.transform.position);
             if (Input.GetMouseButtonDown(0)){
                 //Debug.Log("Mouse Down");
