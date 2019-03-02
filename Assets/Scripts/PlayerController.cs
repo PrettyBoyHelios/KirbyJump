@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     private Vector3 startDrag;
     private Vector3 endDrag;
+    [Range(4000, 7000)]
     public float jumpForce;
     private bool mousePressed;
     private Vector3 jumpDirection;
@@ -27,17 +28,17 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(this.transform.position);
         if (Input.GetMouseButtonDown(0)){
-            Debug.Log("Mouse Down");
-             mousePressed = true;
-             Ray vRayStart = Camera.main.ScreenPointToRay(Input.mousePosition);
-             startDrag = vRayStart.origin;
+            //Debug.Log("Mouse Down");
+            mousePressed = true;
+            Ray vRayStart = Camera.main.ScreenPointToRay(Input.mousePosition);
+            startDrag = vRayStart.origin;
          }
 
          if (Input.GetMouseButtonUp(0)){
- 
              if (mousePressed) {
-                Debug.Log("Mouse Released!");
+                //Debug.Log("Mouse Released!");
  
                 Ray vRayEnd = Camera.main.ScreenPointToRay(Input.mousePosition);
  
@@ -47,20 +48,15 @@ public class PlayerController : MonoBehaviour
                 totalDistance = jumpDirection.magnitude;
                 jumpDirection = jumpDirection/totalDistance;
  
-                //GameObject fireInstance = Instantiate(prefab, mouseEndPosition, Quaternion.identity) as GameObject;
- 
                 Vector2 direction2D = new Vector2(-jumpDirection.x,-jumpDirection.y);
 
-                Debug.Log(direction2D);
-                Debug.Log(totalDistance);
+                //Debug.Log(direction2D);
+                //Debug.Log(totalDistance);
 
-                
                 this.GetComponent<Rigidbody2D>().AddForce(direction2D * jumpForce);
  
-                 mousePressed = false;
+                mousePressed = false;
              }
- 
          }
-
     }
 }

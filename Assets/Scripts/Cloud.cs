@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameController : MonoBehaviour
+public class Cloud : MonoBehaviour
 {
-    private Vector3 mainCameraPos;
-    public Transform playerTransform;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +13,6 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         
     }
 }
