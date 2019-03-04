@@ -75,6 +75,14 @@ Kirby only has three lifes to get as far as he can. He may lose them by hitting 
 
 He may lose all of them when falling from a cloud and having nowhere to land to.
 
+### Prefabs
+
+The background elements and clouds are managed as prefabs, instantiating them when needed and dinamically according to the player's progress. Accounting for prefabs and their deletion was managed using lists as shown below. Keep memory usage low.
+
+```csharp
+    List<GameObject>
+```
+
 ## Screenshots
 
 Some images of the final game.
