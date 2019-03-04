@@ -91,6 +91,7 @@ public class PlayerController : MonoBehaviour
 
                 Vector2 direction2D = new Vector2(-jumpDirection.x,-jumpDirection.y);
 
+                
                 //Debug.Log(direction2D);
                 //Debug.Log("Total Distance: " + totalDistance + " vs " + jumpForce);
 
