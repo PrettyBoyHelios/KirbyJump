@@ -95,7 +95,7 @@ Some images of the final game.
 
 ![Steady](Assets/Docs/gameSteady.png)
 ![High](Assets/Docs/gameHigh.png)
-![Jumping](Assets/Docs/gameJumping.PNG)
+![Jumping](Assets/Docs/gameJumping.jpg)
 
 ### Game Over
 
