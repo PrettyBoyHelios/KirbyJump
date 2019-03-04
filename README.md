@@ -12,10 +12,30 @@ March 2019
 
 ## Table of Contents  
 
-* [Levels](#levels)
-* [Game Mechanics](#game-mechanics)
+* [Concept](#concept)
+* [Game Mechanics](#game-mechanics)  
+* [Levels](#levels)  
 * [Programming Elements](#programming-elements)
 * [Screenshots](#screenshots)
+
+## Concept
+
+**KirbyJump**  
+2D Vertical platforming endless game, with a Kirby theme.
+
+## Game Mechanics
+
+The objective of the game is to make kirby reach the highest point posible, while using clouds to climp his way up.
+
+In order to jump, you must drag your finger from Kirby and into the opposite direction you wish Kirby to jump to. The longer (distance-wise) the drag is, the more force Kirby will use to perform a jump.
+
+The player must avoid touching clouds from below and falling of of clouds, as they dissapear once a player has succesfully reached a point above them.
+
+The game gets progressively harder, as clouds start making the journey harder each time. They will start moving faster and appear in lesser amounts so that Kirby has to plan each move carefully.
+
+### Camera
+
+The game uses a simple orthogonal camera that follows the main player throughout the game from a unique perspective.
 
 ## Levels
 
@@ -34,16 +54,6 @@ The detailed description of levels and their values is presented below.
 | Level | 1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    | 9    | 10   |
 |:-----:|------|------|------|------|------|------|------|------|------|------|
 | Speed | 0.3f | 0.5f | 0.7f | 1.0f | 1.5f | 1.6f | 1.8f | 2.0f | 2.5f | 2.8f |
-
-## Game Mechanics
-
-The objective of the game is to make kirby reach the highest point posible, while using clouds to climp his way up.
-
-In order to jump, you must drag your finger from Kirby and into the opposite direction you wish Kirby to jump to. The longer (distance-wise) the drag is, the more force Kirby will use to perform a jump.
-
-The player must avoid touching clouds from below and falling of of clouds, as they dissapear once a player has succesfully reached a point above them.
-
-The game gets progressively harder, as clouds start making the journey harder each time. They will start moving faster and appear in lesser amounts so that Kirby has to plan each move carefully.
 
 ## Programming Elements
 
