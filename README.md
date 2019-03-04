@@ -1,14 +1,15 @@
 # KirbyJump
 
-**Virtual Environments Agent Programming** | Universidad Panamericana 2019
+**Virtual Environments Agent Programming** | *Universidad Panamericana 2019*
 
-**Teacher: Linda Jimena Hernández**  
-**Student: Luis Enrique Correa Morán**  
+**Teacher:** Linda Jimena Hernández  
+**Student:** Luis Enrique Correa Morán  
   
 0186950
 March 2019
 
 ## Table of Contents
+
 ![Kirby Jump Icon](Assets/Sprites/Icon_256.png)  
 
 * [Levels](#levels)

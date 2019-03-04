@@ -64,31 +64,31 @@ public class GameController : MonoBehaviour
     void Update()
     {
         updateLevelInfo();
-        playerHeight = playerTransform.position.y;
-        //Debug.Log("Height: " + playerHeight);
-        isPlayerJumping = playerObject.GetComponent<PlayerController>().isJumping;
+        setStateVariables();
 
         fixBackground();
-        
-        
 
         // Check for cloud consistency
-        //Debug.Log(isPlayerJumping);
         if(!isPlayerJumping){
             removePastClouds();
             fillClouds();
             checkHighscore();
-            
             repositionResetBlock();
         }
+
         repositionCamera();
 
-        if(playerHeight < (float) highScore - 20f){
-            Debug.Log("Restart by exit condition");
+        if(playerHeight < (float) highScore - 10f){
+            //Debug.Log("Restart by exit condition");
             restartGame();
         }
 
-        scoreField.text = "Score: " + highScore.ToString() + "\nLevel: " + (this.levelInfo + 1);
+        scoreField.text = "score: " + highScore.ToString() + "\nlevel: " + (this.levelInfo + 1);
+    }
+
+    private void setStateVariables(){
+        playerHeight = playerTransform.position.y;
+        isPlayerJumping = playerObject.GetComponent<PlayerController>().isJumping;
     }
 
     private float clampToScreen(float value){
@@ -126,12 +126,8 @@ public class GameController : MonoBehaviour
         }
         
     }
-
-
     private void fixBackground(){
-        //Debug.Log("Fixing BG!");
         if(!isPlayerJumping){
-            //Debug.Log("Checking!");
             if(playerHeight > background[0].transform.position.y + 6.0f){
                 if(isFirstBg){
                     // Keeps reference in order to safely
@@ -154,7 +150,6 @@ public class GameController : MonoBehaviour
     }
 
     private void removePastClouds(){
-        //indexToDelete.Clear();
         List<GameObject> delClouds = new List<GameObject>();
         //Debug.Log(currentClouds.Count);
         for(int i = 1; i<currentClouds.Count;i++){
@@ -169,13 +164,6 @@ public class GameController : MonoBehaviour
             delClouds.Remove(aux);
             Destroy(aux);
         }
-        // Remove from list
-        // foreach(var i in indexToDelete){
-        //     GameObject auxCloud = currentClouds[i];
-        //     currentClouds.RemoveAt(i);
-        //     Destroy(auxCloud);
-        // }
-        //Debug.Log(currentClouds.Count);
     }
 
     private void repositionCamera(){
