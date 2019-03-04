@@ -90,8 +90,12 @@ public class PlayerController : MonoBehaviour
                 jumpDirection = jumpDirection/totalDistance;
 
                 Vector2 direction2D = new Vector2(-jumpDirection.x,-jumpDirection.y);
-
                 
+                // Comment this if if running on non-touch device
+                if(float.IsNaN(direction2D.x) || float.IsNaN(direction2D.y)){
+                    direction2D = Vector2.up;
+                    totalDistance = 1.0f;
+                }
                 //Debug.Log(direction2D);
                 //Debug.Log("Total Distance: " + totalDistance + " vs " + jumpForce);
 
